@@ -20,7 +20,7 @@ sails generate api doctor
 sails lift
  
 	
-http://localhost:1337/vitals/create?minsp02=99&maxsp02=233&minbeat=83&maxbeat=122&mintemp=78&maxtemp=102&interval=23
+http://localhost:1337/vital/create?minsp02=99&maxsp02=233&minbeat=83&maxbeat=122&mintemp=78&maxtemp=102&interval=23
 
 http://localhost:1337/doctor/create?name=DrSathya&mobile=9583298535
 
