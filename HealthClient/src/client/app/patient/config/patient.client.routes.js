@@ -23,7 +23,7 @@
                     title: 'List Patients',
                     settings: {
                         nav: 3,
-                        content: '<i class="fa fa-folder-open"></i> Patients'
+                        content: '<i class="fa fa-user"></i> Patients'
                     }
                 }
             },

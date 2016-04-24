@@ -23,7 +23,7 @@
                     title: 'List Doctors',
                     settings: {
                         nav: 3,
-                        content: '<i class="fa fa-folder-open"></i> Doctors'
+                        content: '<i class="fa fa-user-md"></i> Doctors'
                     }
                 }
             },

@@ -39,10 +39,6 @@ module.exports = {
 	interval: {
 	  type: 'string',
 	  required: true
-	},
-     patient: {
-	  unique:true,
-      model: 'patient'
-    }
+	} 
   }
 };

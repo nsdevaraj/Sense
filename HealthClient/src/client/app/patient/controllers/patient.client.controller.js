@@ -76,6 +76,22 @@
             vm.patient = Patient.get({patientId: $stateParams.patientId});
             vm.setFormFields(true);
         };
+	
+        vm.refreshDoctors = function(search) {
+
+            var requestParams = {};
+            requestParams.limit = 10;
+            requestParams.sort = 'name ASC';
+            requestParams.where = {
+                'name': {
+                    'contains': search
+                }
+            };
+
+            Doctor.get(requestParams, function(response) {
+                vm.doctor = response.results;
+            });
+        };
 
         vm.toEditPatient = function() {
             vm.patient = Patient.get({patientId: $stateParams.patientId});

@@ -23,7 +23,7 @@
                     title: 'List Vitals',
                     settings: {
                         nav: 3,
-                        content: '<i class="fa fa-folder-open"></i> Vitals'
+                        content: '<i class="fa fa-cubes"></i> Vitals'
                     }
                 }
             },
