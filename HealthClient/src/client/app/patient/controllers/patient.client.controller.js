@@ -10,24 +10,27 @@
         '$location',
         'Patient',
         'TableSettings',
-        'PatientForm'];
+		'PatientForm',
+        'Doctor'];
     /* @ngInject */
     function PatientController(logger,
         $stateParams,
         $location,
         Patient,
         TableSettings,
-        PatientForm) {
+		PatientForm,
+        Doctor) {
 
         var vm = this;
 
         vm.tableParams = TableSettings.getParams(Patient);
         vm.patient = {};
+ 
 
         vm.setFormFields = function(disabled) {
             vm.formFields = PatientForm.getFormFields(disabled);
         };
-
+		
         vm.create = function() {
             // Create new Patient object
             var patient = new Patient(vm.patient);
@@ -84,14 +87,15 @@
             requestParams.sort = 'name ASC';
             requestParams.where = {
                 'name': {
-                    'contains': search
+                    'contains': ''
                 }
             };
 
             Doctor.get(requestParams, function(response) {
-                vm.doctor = response.results;
+                vm.doctors = response.results;
             });
         };
+ 
 
         vm.toEditPatient = function() {
             vm.patient = Patient.get({patientId: $stateParams.patientId});
