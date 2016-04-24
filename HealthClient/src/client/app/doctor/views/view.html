@@ -10,21 +10,19 @@
         <formly-form model="vm.doctor" fields="vm.formFields">
         </formly-form>
       </form>
-	 <div class="wrapper-table-sale-lines" ng-if="vm.doctor.patients.length">
-          <table class="table table-striped table-condensed table-sale-lines">
+	 <div class="wrapper-table-patients-lines" ng-if="vm.doctor.patients.length">
+          <table class="table table-striped table-condensed table-patients-lines">
             <tr>
               <th>Patient Name</th>
-              <th>Mobile</th>
-              <th>Vital Interval</th>
+              <th>Mobile</th> 
               <th>Modify</th>
             </tr>
 
             <tr ng-repeat="patient in vm.doctor.patients">
               <td>{{ patient.name }}</td>
-              <td>{{ patient.mobile }}</td>
-              <td>{{ patient.currentvital}}</td>
+              <td>{{ patient.mobile }}</td> 
 			  <td>
-				<a class="btn btn-success" href="/vitals/{{patient.currentvital}}/edit">
+				<a class="btn btn-success" href="/vitals/{{patient.vital}}/edit">
 				  <i class="glyphicon glyphicon-edit"></i> Edit
 				</a>
 			  </td>
