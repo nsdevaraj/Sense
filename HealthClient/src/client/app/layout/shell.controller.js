@@ -14,8 +14,7 @@
         $rootScope.showSplash = true;
         vm.navline = {
             title: config.appTitle,
-            text: 'Developed with generator-angular-crud',
-            link: 'https://github.com/jlmonteagudo/generator-angular-crud'
+            text: 'Developed for HealthSense'
         };
 
         activate();

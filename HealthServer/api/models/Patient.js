@@ -21,8 +21,9 @@ module.exports = {
     supervisor: {
 	   model: 'doctor'
     },
-    vital: {
-      model:'vital'
+    vitals: {
+	  collection: 'vital',
+      via: 'owner'
     }
   }
 };

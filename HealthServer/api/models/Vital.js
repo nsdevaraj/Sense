@@ -36,10 +36,8 @@ module.exports = {
 	  type: 'string',
 	  required: true
 	},
-    owner: {
-	   model: 'patient',
-	   unique: true
+     owner: {
+      model: 'patient'
     }
   }
 };
-
