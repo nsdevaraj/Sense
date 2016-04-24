@@ -48,3 +48,7 @@ yo angular-crud:feature doctor
 
 gulp serve-dev
 
+devaraj@wp.pl
+
+ https://healthsensor-nsdevaraj.c9users.io
+ https://healthsensor-client-nsdevaraj.c9users.io
