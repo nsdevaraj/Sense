@@ -20,6 +20,9 @@ module.exports = {
     },
     supervisor: {
 	   model: 'doctor'
+    },  
+    currentvital: {
+	  type: 'integer'
     },
     vitals: {
 	  collection: 'vital',
