@@ -11,7 +11,8 @@
         'Patient',
         'TableSettings',
 		'PatientForm',
-        'Doctor'];
+        'Doctor',
+		'Vital'];
     /* @ngInject */
     function PatientController(logger,
         $stateParams,
@@ -19,14 +20,34 @@
         Patient,
         TableSettings,
 		PatientForm,
-        Doctor) {
+        Doctor,
+		Vital) {
 
         var vm = this;
 
         vm.tableParams = TableSettings.getParams(Patient);
         vm.patient = {};
- 
+		vm.selectedDoctor = null;
+		vm.selectedVital = null;
+		vm.doctors = [];
+		vm.vitals = [];
+	
+		Doctor.get('', function(response) {
+			vm.doctors = response.results;
+		});
 
+		Vital.get('', function(response) {
+			vm.vitals = response.results;
+		});
+		
+		vm.setDoctor = function() {
+			vm.patient.supervisor = vm.selectedDoctor;
+        };
+		
+		vm.setVital = function() {
+			vm.patient.vital = vm.selectedVital;
+        };
+		
         vm.setFormFields = function(disabled) {
             vm.formFields = PatientForm.getFormFields(disabled);
         };
@@ -79,23 +100,7 @@
             vm.patient = Patient.get({patientId: $stateParams.patientId});
             vm.setFormFields(true);
         };
-	
-        vm.refreshDoctors = function(search) {
-
-            var requestParams = {};
-            requestParams.limit = 10;
-            requestParams.sort = 'name ASC';
-            requestParams.where = {
-                'name': {
-                    'contains': ''
-                }
-            };
-
-            Doctor.get(requestParams, function(response) {
-                vm.doctors = response.results;
-            });
-        };
- 
+	 
 
         vm.toEditPatient = function() {
             vm.patient = Patient.get({patientId: $stateParams.patientId});

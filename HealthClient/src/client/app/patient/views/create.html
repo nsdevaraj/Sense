@@ -15,22 +15,22 @@
             <div>
               <label class="control-label">
                 Doctor:*
+              </label>  
+			  <select ng-model="vm.selectedDoctor" 
+			  ng-options='doctor.name for doctor in vm.doctors'
+			  ng-change="vm.setDoctor()">
+			 </select>  
+			 </div>
+			 </div>
+			 </div>
+		<div class="formly-field formly-field-input" >
+			<div class="form-group">
+			<div>
+			<label class="control-label">
+                Vital:*
               </label> 
-			  <ui-select />
-              <ui-select ng-model="vm.patient"
-                theme="bootstrap"
-                class="select-customer"
-                title="Choose a doctor">
-                    <ui-select-match placeholder="Enter a doctor...">{{$select.selected.name}}</ui-select-match>
-                
-                <ui-select-choices repeat="doctor in vm.doctors track by $index"
-                  refresh="vm.refreshCustomers($select.search)"
-                  refresh-delay="0">
-				  
-                </ui-select-choices>
-    
-              </ui-select>                
-			
+			  <select ng-model="vm.selectedVital" ng-options="vital.Id as vital.name for vital in vm.vitals"  ng-change="vm.setVital()">
+			 </select>  			 
             </div>
           </div>
         </div>    
