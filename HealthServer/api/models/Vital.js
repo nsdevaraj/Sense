@@ -8,6 +8,10 @@
 module.exports = {
   schema: true,
   attributes: {
+	 name: {
+      type: 'string',
+      required: true
+    },
     minsp02: {
       type: 'string',
       required: true
@@ -36,7 +40,8 @@ module.exports = {
 	  type: 'string',
 	  required: true
 	},
-     owner: {
+     patient: {
+	  unique:true,
       model: 'patient'
     }
   }

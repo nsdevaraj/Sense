@@ -9,10 +9,12 @@
       <form novalidate>
         <formly-form model="vm.patient" fields="vm.formFields">
         </formly-form>
-      </form>
-
+      </form> 
       <hr/>
       <div>
+        <a class="btn btn-success" href="/vitals/{{vm.patient.vital.id}}/edit">
+          <i class="glyphicon glyphicon-edit"></i> Edit Vital
+        </a>
         <a class="btn btn-success" href="/patient/{{vm.patient.id}}/edit">
           <i class="glyphicon glyphicon-edit"></i> Edit
         </a>

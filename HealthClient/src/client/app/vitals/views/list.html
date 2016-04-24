@@ -14,8 +14,8 @@
 
       <table ng-table="vm.tableParams" show-filter="true" class="table table-condensed table-striped">
           <tr ng-repeat="vital in $data">
-              <td data-title="'Patient'" sortable="'patient'" filter="{'patient': 'text'}">{{vital.owner.name}}</td>
-              <td data-title="'Interval'" sortable="'interval'" filter="{ 'name': 'text' }">{{vital.interval}}</td>
+              <td data-title="'Vital Alias'" sortable="'name'" filter="{'name': 'text'}">{{vital.name}}</td>
+              <td data-title="'Interval'" sortable="'interval'" filter="{ 'interval': 'text' }">{{vital.interval}}</td>
               <td data-title="'Min Temp'" sortable="'mintemp'" filter="{'mintemp': 'text'}">{{vital.mintemp}}</td>
               <td data-title="'Max Temp'" sortable="'maxtemp'" filter="{'maxtemp': 'text'}">{{vital.maxtemp}}</td>
               <td data-title="'Min Beat'" sortable="'minbeat'" filter="{'minbeat': 'text'}">{{vital.minbeat}}</td>
