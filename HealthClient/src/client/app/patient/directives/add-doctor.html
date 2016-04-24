@@ -11,22 +11,21 @@
           <div class="form-group">
             <div>
               <label class="control-label">
-                Product:*
+                Vital:*
               </label>
                 
-              <ui-select ng-model="saleLine.product"
+              <ui-select ng-model="patient.vital"
                 theme="bootstrap"
                 style="width: 300px;"
-                class="select-product"
-                title="Choose a product"
-                ng-change="setPrice()">
+                class="select-vital"
+                title="Choose a Vital" >
                 
-                <ui-select-match placeholder="Enter a product...">{{$select.selected.description}}</ui-select-match>
+                <ui-select-match placeholder="Enter a vital...">{{$select.selected.name}}</ui-select-match>
                 
-                <ui-select-choices repeat="product in products track by $index"
-                  refresh="refreshProducts($select.search)"
+                <ui-select-choices repeat="vital in vitals track by $index"
+                  refresh="refreshVitals($select.search)"
                   refresh-delay="0">
-                  <div ng-bind-html="product.description | highlight: $select.search"></div>
+                  <div ng-bind-html="vital.name | highlight: $select.search"></div>
                 </ui-select-choices>
     
               </ui-select>                
@@ -35,12 +34,12 @@
           </div>
         </div>        
 
-        <formly-form model="saleLine" fields="formFields" form="form">
+        <formly-form model="patient" fields="formFields" form="form">
         </formly-form>
 		
         <hr/>
         <div class="form-group">
-            <button type="submit" class="btn btn-success" ng-disabled="form.$invalid || !saleLine.product">
+            <button type="submit" class="btn btn-success" ng-disabled="form.$invalid || !patient.supervisor">
               <i class="glyphicon glyphicon-ok"></i> Save
             </button>
             <a class="btn btn-danger" ng-click="cancel()">

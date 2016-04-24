@@ -2,16 +2,16 @@
     'use strict';
 
     angular
-        .module('app.sale')
-        .directive('addSaleLine', AddSaleLine);
+        .module('app.patient')
+        .directive('AddDoctor', AddDoctor);
 
-    AddSaleLine.$inject = ['$modal'];
+    AddDoctor.$inject = ['$modal'];
     /* @ngInject */
-    function AddSaleLine($modal) {
+    function AddDoctor($modal) {
         var directive = {
             restrict: 'A',
             scope: {
-                sale: '='
+                patient: '='
             },
             link: linkFunc($modal)
         };
@@ -25,12 +25,12 @@
             el.bind('click', function() {
 
                 var modalInstance = $modal.open({
-                    templateUrl: 'app/sale/directives/add-sale-line.html',
+                    templateUrl: 'app/patient/directives/add-doctor.html',
                     controller: ModalInstanceController
                 });
 
-                modalInstance.result.then(function(saleLine) {
-                    scope.sale.lines.push(saleLine);
+                modalInstance.result.then(function(doctor) {
+                    scope.patient.supervisor = doctor;
                 });
 
             });
@@ -40,13 +40,13 @@
 
     var ModalInstanceController = ['$scope',
     '$modalInstance',
-    'SaleLineForm',
-    'Product',
-    function($scope, $modalInstance, SaleLineForm, Product) {
+    'PatientForm',
+    'Vital',
+    function($scope, $modalInstance, PatientForm, Vital) {
 
         $scope.saleLine = {};
-        $scope.formFields = SaleLineForm.getFormFields(false);
-        $scope.products = [];
+        $scope.formFields = PatientForm.getFormFields(false);
+        $scope.vitals = [];
 
         $scope.create = function() {
             $modalInstance.close($scope.saleLine);
@@ -56,7 +56,7 @@
             $modalInstance.dismiss();
         };
 
-        $scope.refreshProducts = function(search) {
+        $scope.refreshVitals = function(search) {
 
             var requestParams = {};
             requestParams.limit = 10;
@@ -67,17 +67,12 @@
                 }
             };
 
-            Product.get(requestParams, function(response) {
-                $scope.products = response.results;
+            Vital.get(requestParams, function(response) {
+                $scope.vital = response.results;
             });
 
         };
-
-        $scope.setPrice = function() {
-            if ($scope.saleLine.product) {
-                $scope.saleLine.price = $scope.saleLine.product.price;
-            }
-        };
+ 
 
     }];
 
