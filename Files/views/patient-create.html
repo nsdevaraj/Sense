@@ -29,9 +29,7 @@
 			<label class="control-label">
                 Vital:*
               </label> 
-			  <select ng-model="vm.selectedVital" 
-			  ng-options="vital.name for vital in vm.vitals"  
-			  ng-change="vm.setVital()">
+			  <select ng-model="vm.selectedVital" ng-options="vital.Id as vital.name for vital in vm.vitals"  ng-change="vm.setVital()">
 			 </select>  			 
             </div>
           </div>

@@ -45,7 +45,6 @@
         };
 		
 		vm.setVital = function() {
-			console.log(vm.selectedVital)
 			vm.patient.vital = vm.selectedVital;
         };
 		
