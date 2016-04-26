@@ -11,6 +11,15 @@
 
             var fields = [
                 {
+                    key: 'name',
+                    type: 'input',
+                    templateOptions: {
+                        label: 'Vital Alias:',
+                        disabled: disabled,
+                        required: true
+                    }
+                },
+                {
                     key: 'interval',
                     type: 'input',
                     templateOptions: {

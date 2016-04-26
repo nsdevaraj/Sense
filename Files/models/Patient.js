@@ -20,10 +20,10 @@ module.exports = {
     },
     supervisor: {
 	   model: 'doctor'
-    },
-    vitals: {
-      model:'vitals'
-    }
+    },  
+    vital: {
+	  model: 'vital'
+    } 
   }
 };
 
